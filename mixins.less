@@ -1,0 +1,109 @@
+.font(@fontName; @urlName: @fontName; @weight: normal; @style: normal) {
+  font-family: '@{fontName}';
+  src: url('../fonts/@{urlName}/@{urlName}.eot');
+  src: url('../fonts/@{urlName}/@{urlName}.eot#iefix') format('embedded-opentype'),
+  url('../fonts/@{urlName}/@{urlName}.woff2') format('woff2'),
+  url('../fonts/@{urlName}/@{urlName}.woff') format('woff'),
+    url('../fonts/@{urlName}/@{urlName}.ttf') format('truetype');
+    font-weight: @weight;
+    font-style: @style;
+}
+
+@font-face {
+	.font(@fontRegular);
+}
+@font-face{
+	.font(@lobster);
+}
+@font-face {
+	.font(@semibold);
+}
+
+@font-face {
+	.font(@myriad);
+}
+
+.float(left){
+	float: left;
+}
+.float(right){
+	float: right;
+}
+
+.transition(@property: all, @duration: 0.3s, @function: linear) {
+  -webkit-transition: @arguments;
+     -moz-transition: @arguments;
+       -o-transition: @arguments;
+          transition: @arguments;
+}
+
+.transform(@value) {
+  -webkit-transform: @value;
+     -moz-transform: @value;
+      -ms-transform: @value;
+       -o-transform: @value;
+          transform: @value;
+}
+
+.opacity (@opacity: 0.5) {
+  -webkit-opacity: @opacity;
+     -moz-opacity: @opacity;
+          opacity: @opacity;
+}
+
+.media(@screen, @rules) {
+
+  & when (@screen = mobile-with) {
+    @media (min-width: 480px) {
+      @rules();
+    }
+  }
+
+  & when (@screen = tablet) {
+    @media (min-width: 640px) {
+      @rules();
+    }
+}
+
+    & when (@screen = tablet-with) {
+    @media (min-width: 800px) {
+      @rules();
+    }
+}
+
+    & when (@screen = desktop-xs) {
+    @media (min-width: 1024px) {
+      @rules();
+    }
+}
+
+    & when (@screen = desktop-sm) {
+    @media (min-width: 1280px) {
+      @rules();
+    }
+}
+
+    & when (@screen = desktop-md) {
+    @media (min-width: 1600px) {
+      @rules();
+    }
+  }
+
+    & when (@screen = desktop-lg) {
+    @media (min-width: 1920px) {
+      @rules();
+    }
+  }
+}
+
+.border-radius(@r: 3px) {
+  -webkit-border-radius: @r;
+  -moz-border-radius: @r;
+  border-radius: @r;
+}
+
+.box-sizing (@type: border-box) {
+	-webkit-box-sizing: @type;
+	   -moz-box-sizing: @type;
+	        box-sizing: @type;
+}
